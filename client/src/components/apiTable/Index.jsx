@@ -1,18 +1,9 @@
 import React from 'react';
-import axios from 'axios';
+import ApiTableRows from '../apiTableRows/Index'
+import TableNavigation from '../tableNavigation/Index'
 
-import { evaluateHTTPS, evaluateCors } from '../../utils/evaluateIcon';
+const Index = ({page, setPage, sort, list }) => {
 
-const Index = ({sort, list }) => {
-  const addFavorite = e => {
-    if (!e.target.classList.contains('disabled-btn')) {
-      e.target.textContent = 'Added';
-      e.target.classList.add('disabled-btn');
-      const targetId = e.target.parentElement.parentElement.id;
-      const apiObj = list.find(api => api.apiId === targetId);
-      axios.post('/api/favorites', apiObj);
-    }
-  };
 
   const sortedList = () => {
     switch (sort) {
@@ -35,6 +26,10 @@ const Index = ({sort, list }) => {
     }
   }
 
+  if(!list.length) {
+    return;
+  }
+
   return (
     <>
       <table className="api-table">
@@ -50,42 +45,11 @@ const Index = ({sort, list }) => {
           </tr>
         </thead>
         <tbody className="api-table__body">
-          {sortedList()?.map(
-            ({
-              API,
-              Description,
-              Category,
-              Auth,
-              HTTPS,
-              Cors,
-              Link,
-              apiId,
-            }) => {
-              return (
-                <tr id={apiId}>
-                  <td className="api-table__body__title">
-                    <a href={Link}>{API}</a>
-                  </td>
-                  <td>{Description}</td>
-                  <td>{Category}</td>
-                  <td className="api-table__body__small-cell">{Auth || '-'}</td>
-                  <td className="api-table__body__small-cell">
-                    {evaluateHTTPS(HTTPS)}
-                  </td>
-                  <td className="api-table__body__small-cell">
-                    {evaluateCors(Cors)}
-                  </td>
-                  <td className="api-table__body__small-cell">
-                    <span className="favorite-button" onClick={addFavorite}>
-                      Add
-                    </span>
-                  </td>
-                </tr>
-              );
-            }
-          )}
+        <ApiTableRows list={sortedList()} page={page}/>
         </tbody>
       </table>
+
+      <TableNavigation list={list} page={page} setPage={setPage} />
     </>
   );
 };

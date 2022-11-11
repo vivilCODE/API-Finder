@@ -225,6 +225,62 @@ h3 {
   background-color: #f9f9f9;
 }
 
+/* TABLE NAVIGATION*/
+
+.table-navigation {
+  display:flex;
+  margin:.5em auto 3em auto;
+  width:fit-content;
+  align-items: center;
+}
+
+.table-navigation div {
+  margin:0 2em;
+  color:white;
+  display:flex;
+  flex-direction: column;
+  gap:.2em;
+  align-items: center;
+}
+
+.table-navigation__results {
+  padding:0 2em;
+  opacity: .9;
+}
+
+.table-navigation__divider {
+  background-image: url('./images/gradient.png');
+  height:2px;
+  width:100%;
+  background-size: 110%;
+  background-position-x: -10px; ;
+  margin:5px 0;
+}
+
+.table-navigation__page {
+opacity: .8;
+font-size:.9em;
+}
+
+.table-navigation__button {
+  border:none;
+  background: none;
+  padding:.25em 1em;
+  color:white;
+  border:1px solid white;
+  border-radius: 1em;
+  margin:0 .5em;
+}
+
+.table-navigation__button:hover {
+  background-color: white;
+  color:black;
+}
+
+.primary {
+  font-size:1.1em;
+}
+
 /* FAVORITES PAGE */
 
 .favorites-header {
@@ -281,7 +337,7 @@ h3 {
 .favorites-list__table {
     width:100%;
     border-collapse: collapse;
-    margin-bottom:3em;
+    margin-bottom:6em;
     font-size: .9em;
 }
 
@@ -305,7 +361,7 @@ h3 {
 .favorites-list__item__link,
 .favorites-list__item__remove {
     position:absolute;
-    bottom:1em;
+    bottom:3em;
     padding:.5em 1em;
     border-radius: 1em;
     font-weight:700;
@@ -326,12 +382,13 @@ h3 {
 .favorites-list__item__remove {
     font-size:1em;
     right:2em;
-    border: 2px solid rgb(146, 0, 0);
+    border: 2px solid rgb(179, 0, 0);
+    color: rgb(179, 0, 0);
     background-color: white;
     cursor: pointer;
 }
 
 .favorites-list__item__remove:hover {
-    background-color: rgb(146, 0, 0);
+    background-color: rgb(179, 0, 0);
     color:white;
 }

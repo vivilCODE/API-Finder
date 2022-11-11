@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import Greeting from '../greeting/Index';
 import SearchBar from '../searchbar/Index';
-import ApiList from '../apiTable/Index';
+import ApiTable from '../apiTable/Index';
 
 const Index = ({apiResponse, setApiResponse}) => {
   const [sort, setSort] = useState(null);
+  const [page, setPage] = useState(null);
   return (
     <>
       <Greeting/>
-      <SearchBar setSort={setSort} setList={setApiResponse} />
-      <ApiList sort={sort} list={apiResponse} />
+      <SearchBar setPage={setPage} setSort={setSort} setList={setApiResponse} />
+      <ApiTable page={page} setPage={setPage} sort={sort} list={apiResponse} />
     </>
   );
 };

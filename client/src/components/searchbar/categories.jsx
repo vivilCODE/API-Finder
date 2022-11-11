@@ -52,6 +52,6 @@ const categories = [
   'Weather',
 ];
 
-export const htmlOptions = categories.map(cat => {
-    return <option value={cat}>{cat}</option>
+export const htmlOptions = categories.map((category, index) => {
+    return <option key={index} value={category}>{category}</option>
 })

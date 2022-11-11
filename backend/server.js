@@ -21,11 +21,10 @@ app
   .route('/api/favorites')
   .get(async (req, res) => {
     const data = await Api.find();
-    res.send(data);
+    res.send(data.reverse());
   })
   .post(async (req, res) => {
     const newFavorite = req.body;
-    newFavorite.test = 'Testing';
     Api.create(newFavorite);
   })
   .delete(async (req, res) => {
