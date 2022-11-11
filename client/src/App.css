@@ -229,7 +229,7 @@ h3 {
 
 .table-navigation {
   display:flex;
-  margin:.5em auto 3em auto;
+  margin:.5em auto 6em auto;
   width:fit-content;
   align-items: center;
 }

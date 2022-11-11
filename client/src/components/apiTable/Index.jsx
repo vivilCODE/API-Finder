@@ -16,7 +16,7 @@ const Index = ({page, setPage, sort, list }) => {
       case 'alphCatRev':
         return list.sort((a,b) => b.Category.localeCompare(a.Category));
       case 'auth':
-        return list.sort((a,b) => b.Auth.localeCompare(a.Auth));
+        return list.sort((a,b) => a.Auth.localeCompare(b.Auth));
       case 'https':
         return list.sort(((a,b) => Number(b.HTTPS) - Number(a.HTTPS)));
       case 'cors':
